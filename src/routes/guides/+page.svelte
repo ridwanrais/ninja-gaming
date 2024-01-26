@@ -1,11 +1,16 @@
-<script>
-	// your script goes here
+<script lang="ts">
+	export let data: any;
+
+	const guides = data?.guides || [];
 </script>
 
 <div class="guides">
 	<ul>
-		<li><a href="/">guide 1</a></li>
-		<li><a href="/">guide 2</a></li>
+		{#each guides as guide}
+			<li>
+				<a href={`/guides/${guide.id}`}>{guide.title}</a>
+			</li>
+		{/each}
 	</ul>
 </div>
 
